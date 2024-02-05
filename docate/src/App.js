@@ -1,11 +1,29 @@
+// src/App.js
 
-import './App.css';
+import React, { useState } from 'react';
+import Login from './Login';
 
 function App() {
+  const [userType, setUserType] = useState(null);
+
+  const handleLogin = (type) => {
+    setUserType(type);
+  };
+
   return (
-   <h1>HEYY GUYS THIS IS ME SHAMIKA DOING SOME CHANGES IN GITHUB REPO HTF. ALL THE BEST GUYZZZZZZZZZ !!! </h1>
+    <div className="App">
+      {userType ? (
+        <div>
+          <h1>Welcome, {userType}!</h1>
+          {/* Add other components and functionalities here based on userType */}
+        </div>
+      ) : (
+        <div>
+          <Login  onLogin={handleLogin} />
+        </div>
+      )}
+    </div>
   );
 }
 
 export default App;
-
